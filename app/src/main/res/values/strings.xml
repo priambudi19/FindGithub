@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Username</string>
+    <string name="added">Added to Favorite</string>
+    <string name="detail">Detail</string>
+    <string name="myfavorite">My Favorite</string>
+    <string name="deleted">Deleted From Favorite</string>
+    <string name="repository">Repository</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="_100">100</string>
+    <string name="_200">200</string>
+    <string name="_300">300</string>
+    <string name="location">Location</string>
+    <string name="company">Company</string>
+    <string name="error">Error</string>
+    <string name="app_logo">App Logo</string>
+    <string name="icon_loaction">Icon Loaction</string>
+    <string name="desc_icon_company">Icon Company User</string>
+    <string name="button_back">Button Back</string>
+</resources>

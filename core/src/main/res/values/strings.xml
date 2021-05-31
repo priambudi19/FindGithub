@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FindGithub</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="github_username">Github Username</string>
+    <string name="find_github">findGithub</string>
+    <string name="search"> Search more than 71M users</string>
+</resources>
