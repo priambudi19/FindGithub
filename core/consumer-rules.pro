@@ -94,4 +94,3 @@ public *;
     public static *** inflate(android.view.LayoutInflater);
 }
 -keep,includedescriptorclasses class com.priambudi19.favorite.**{*;}
--dontshrink class com.priambudi19.favorite.**{*;}
