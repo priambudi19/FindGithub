@@ -3,14 +3,13 @@ package com.priambudi19.favorite.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.priambudi19.core.ui.UserAdapter
-import com.priambudi19.favorite.R
 import com.priambudi19.favorite.databinding.FragmentFavoriteBinding
 import com.priambudi19.favorite.di.favoriteModule
 import com.priambudi19.findgithub.ui.detail.DetailActivity

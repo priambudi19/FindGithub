@@ -1,6 +1,5 @@
 package com.priambudi19.findgithub.ui.detail
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -77,13 +76,14 @@ class DetailActivity : AppCompatActivity() {
                             setUI(user)
                         }
                         is Resource.Error -> {
-
+                            Toast.makeText(applicationContext, resource.message, Toast.LENGTH_SHORT).show()
                             with(binding) {
                                 loading.visibility = View.GONE
                                 group.visibility = View.GONE
                                 imgError.visibility = View.VISIBLE
                             }
                         }
+                        else -> Unit
                     }
                 })
             }
@@ -178,7 +178,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("ResourceType")
+
     override fun onBackPressed() {
         super.onBackPressed()
         finishAfterTransition()

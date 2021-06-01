@@ -84,14 +84,4 @@ public *;
 *** rewind();
 }
 
--dontwarn sun.misc.**
--dontwarn sun.misc.Unsafe
--dontwarn afu.org.checkerframework**
--dontwarn com.google.errorprone**
--dontwarn java.lang.ClassValue
--keep class * implements androidx.viewbinding.ViewBinding {
-    public static *** bind(android.view.View);
-    public static *** inflate(android.view.LayoutInflater);
-}
--keep,includedescriptorclasses class com.priambudi19.favorite.**{*;}
--dontshrink class com.priambudi19.favorite.**{*;}
+

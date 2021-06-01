@@ -1,13 +1,9 @@
 package com.priambudi19.findgithub.ui
 
+import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import com.priambudi19.findgithub.R
 import com.priambudi19.findgithub.databinding.ActivityMainBinding
-import com.priambudi19.findgithub.ui.search.SearchFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +13,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
 
-
+    override fun onBackPressed() {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q &&
+            isTaskRoot &&
+            supportFragmentManager.primaryNavigationFragment?.childFragmentManager?.backStackEntryCount ?: 0 == 0 &&
+            supportFragmentManager.backStackEntryCount == 0
+        ) {
+            finishAfterTransition()
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

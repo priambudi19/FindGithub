@@ -134,10 +134,10 @@ class SearchFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        userAdapter = null
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
+        userAdapter = null
     }
 
 
