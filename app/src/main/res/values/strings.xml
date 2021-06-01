@@ -18,4 +18,5 @@
     <string name="icon_loaction">Icon Loaction</string>
     <string name="desc_icon_company">Icon Company User</string>
     <string name="button_back">Button Back</string>
+    <string name="user_not_found">No User Found</string>
 </resources>

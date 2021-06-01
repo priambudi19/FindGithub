@@ -83,7 +83,6 @@ class DetailActivity : AppCompatActivity() {
                                 imgError.visibility = View.VISIBLE
                             }
                         }
-                        else -> Unit
                     }
                 })
             }

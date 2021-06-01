@@ -59,7 +59,8 @@ class SearchFragment : Fragment() {
         return try {
             Class.forName("com.priambudi19.favorite.ui.FavoriteFragment").newInstance() as Fragment
         } catch (e: Exception) {
-            Toast.makeText(context, "Module not found", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context?.applicationContext, "Module not found", Toast.LENGTH_SHORT)
+                .show()
             null
         }
     }
@@ -94,22 +95,33 @@ class SearchFragment : Fragment() {
             viewModel.getSearchUser(query).observe(viewLifecycleOwner, {
                 when (it) {
                     is Resource.Success -> {
-                        binding.rvListUser.visibility = View.VISIBLE
-                        binding.groupNoData.visibility = View.GONE
-                        userAdapter = UserAdapter(it.data ?: emptyList())
-                        binding.rvListUser.adapter = userAdapter
                         binding.progressBar.visibility = View.GONE
-                        userAdapter?.let { adapter ->
-                            adapter.onItemClick = { user ->
-                                val intent = Intent(activity, DetailActivity::class.java)
-                                val bundle: Bundle =
-                                    bundleOf("id" to user.id, "username" to user.login)
-                                intent.putExtras(bundle)
-                                startActivity(intent)
+                        if (it.data.isNullOrEmpty()) {
+                            Toast.makeText(
+                                context?.applicationContext,
+                                getString(R.string.user_not_found),
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        } else {
+                            binding.rvListUser.visibility = View.VISIBLE
+                            binding.groupNoData.visibility = View.GONE
+                            userAdapter = UserAdapter(it.data ?: emptyList())
+                            binding.rvListUser.adapter = userAdapter
+                            userAdapter?.let { adapter ->
+                                adapter.onItemClick = { user ->
+                                    val intent = Intent(activity, DetailActivity::class.java)
+                                    val bundle: Bundle =
+                                        bundleOf("id" to user.id, "username" to user.login)
+                                    intent.putExtras(bundle)
+                                    startActivity(intent)
+                                }
                             }
+                            binding.imgError.visibility = View.GONE
+                            binding.groupNoData.visibility = View.GONE
                         }
-                        binding.imgError.visibility = View.GONE
-                        binding.groupNoData.visibility = View.GONE
+
+
                     }
                     is Resource.Error -> {
                         binding.rvListUser.visibility = View.GONE
@@ -118,7 +130,7 @@ class SearchFragment : Fragment() {
                         binding.progressBar.visibility = View.GONE
                         binding.groupNoData.visibility = View.GONE
                         Toast.makeText(
-                            requireContext().applicationContext,
+                            context?.applicationContext,
                             "${it.message}",
                             Toast.LENGTH_SHORT
                         ).show()
